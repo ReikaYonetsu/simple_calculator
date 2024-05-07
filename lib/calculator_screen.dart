@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'calculator_model.dart';
+import 'converter_screen.dart';
+
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -105,6 +107,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 _createButton('='),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: _navigateToConverterScreen,
+                  child: Text('Convert Km to Miles'),
+                ),
+              ],
+            ),
           ],
         ),
       ),
@@ -113,17 +124,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _createButton(String buttonText) {
     return Expanded(
-      child: Container(
-        padding: const EdgeInsets.all(12.0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),  // Adjust padding around the button for spacing
         child: ElevatedButton(
-          onPressed: () => _buttonPressed(buttonText),
-          child: Text(
-            buttonText,
-            style: const TextStyle(fontSize: 24.0),
+          style: ElevatedButton.styleFrom(
+            foregroundColor: Colors.white, backgroundColor: Colors.blue,  // Text color
+            textStyle: TextStyle(fontSize: 24),  // Larger text size
+            padding: EdgeInsets.symmetric(vertical: 20.0),  // Increased padding for taller buttons
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            minimumSize: Size(100, 60),  // Minimum size of the button
           ),
+          onPressed: () => _buttonPressed(buttonText),
+          child: Text(buttonText),
         ),
       ),
     );
   }
 
+
+
+  void _navigateToConverterScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ConverterScreen()),
+    );
+  }
 }
