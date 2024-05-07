@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         textTheme: const TextTheme(
-          headline4: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-          bodyText2: TextStyle(fontSize: 20.0),
+          headlineMedium: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+          bodyMedium: TextStyle(fontSize: 20.0),
         ),
         buttonTheme: const ButtonThemeData(
           buttonColor: Colors.blue,
